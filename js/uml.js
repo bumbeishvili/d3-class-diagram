@@ -1,12 +1,21 @@
 var svg = d3.select('#d3-class-diagram').append('svg')
     .attr({
-      width: 940,
-      height: 280,
+      width: 1024,
+      height: 768,
       id: 'diagram'
     });
 d3.classDiagram.addMarkers(svg.append('defs'));
 
 var classes = [
+  {
+    x: 240, y: 420, width: 260,
+    interface: false,
+    classname: 'Aggregate',
+    methods: [
+      'iterator()'
+    ]
+  },
+
   {
     x: 240, y: 20, width: 260,
     classname: 'User',
