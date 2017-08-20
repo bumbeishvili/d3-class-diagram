@@ -8,13 +8,46 @@ d3.classDiagram.addMarkers(svg.append('defs'));
 
 var classes = [
   {
-    x: 240, y: 420, width: 260,
-    interface: false,
-    classname: 'Aggregate',
+    x: 40, y: 320, width: 190,
+    classname: '<<Interface>>\nAggregate',
     methods: [
       'iterator()'
     ]
   },
+
+  {
+    x: 340, y: 320, width: 190,
+    classname: '<<Interface>>\nIterator',
+    methods: [
+      'hasNext()',
+      'next()'
+    ]
+  },
+
+  {
+    x: 40, y: 520, width: 190,
+    classname: 'ConcreteAggregate',
+    methods: [
+      'iterator()'
+    ]
+  },
+
+  {
+    x: 340, y: 520, width: 190,
+    classname: 'ConcreteIterator',
+    attributes: [
+      'aggregate'
+    ],
+    methods: [
+      'hasNext()',
+      'next()'
+    ]
+  },
+
+
+
+
+
 
   {
     x: 240, y: 20, width: 260,
