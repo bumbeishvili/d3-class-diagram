@@ -244,6 +244,7 @@ d3.classDiagram = (function() {
       .each(function(d, i) {
         var path = d3.select(this);
         path.attr({
+          'id': i + 100,
           'class': 'connector',
           'd': line(d.points),
           'stroke': 'black',

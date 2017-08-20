@@ -1,16 +1,15 @@
 var svg = d3.select('#d3-class-diagram').append('svg')
     .attr({
-      width: 1024,
-      height: 768,
+      width: 600,
+      height: 400,
       id: 'diagram'
     });
-svg.append("text").attr("id", "hfeng").append("textPath").attr("xlink:href", "#curve").text("here I am");
 
 d3.classDiagram.addMarkers(svg.append('defs'));
 
 var classes = [
   {
-    x: 40, y: 320, width: 190,
+    x: 40, y: 20, width: 190,
     classname: 'Aggregate',
     methods: [
       'iterator()'
@@ -18,7 +17,7 @@ var classes = [
   },
 
   {
-    x: 340, y: 320, width: 190,
+    x: 340, y: 20, width: 190,
     classname: 'Iterator',
     methods: [
       'hasNext()',
@@ -27,7 +26,7 @@ var classes = [
   },
 
   {
-    x: 40, y: 520, width: 190,
+    x: 40, y: 220, width: 190,
     classname: 'ConcreteAggregate',
     methods: [
       'iterator()'
@@ -35,7 +34,7 @@ var classes = [
   },
 
   {
-    x: 340, y: 520, width: 190,
+    x: 340, y: 220, width: 190,
     classname: 'ConcreteIterator',
     attributes: [
       'aggregate'
@@ -49,6 +48,7 @@ var classes = [
 
 var boxes = d3.classDiagram.createClasses(classes);
 svg.selectAll('text').attr('font-family', 'Noto Sans Japanese');
+svg.append("text").append("textPath").attr("xlink:href", "#100").attr("startOffset", "30%").attr("font-size", "12").text("creates");
 
 var connectors = [
   {
