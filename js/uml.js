@@ -99,7 +99,7 @@ var connectors = [
       {x: boxes.ConcreteAggregate.rightX(), y: boxes.ConcreteIterator.midY()},
       {x: boxes.ConcreteIterator.x, y: boxes.ConcreteIterator.midY()}
     ],
-    markerEnd: 'arrowhead'
+    markerEnd: 'diamond'
   },
 
   {
@@ -151,7 +151,7 @@ var connectors = [
       {x: boxes.User.rightX() - 20, y: boxes.User.bottomY() + 20},
       {x: boxes.User.rightX() - 20, y: boxes.User.bottomY()}
     ],
-    markerEnd: 'diamond'
+    markerEnd: 'triangle'
   }
 ];
 
