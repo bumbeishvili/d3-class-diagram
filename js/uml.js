@@ -10,40 +10,37 @@ d3.classDiagram.addMarkers(svg.append('defs'));
 var classes = [
   {
     x: 40, y: 20, width: 190,
-    classname: 'Aggregate',
-    interface: true,
+    classname: 'Receiver',
     methods: [
-      'iterator()'
+      'command()'
     ]
   },
 
   {
     x: 340, y: 20, width: 190,
-    classname: 'Iterator',
+    classname: 'Command',
     interface: true,
     methods: [
-      'hasNext()',
-      'next()'
+      'execute()'
     ]
   },
 
   {
     x: 40, y: 220, width: 190,
-    classname: 'ConcreteAggregate',
+    classname: 'ConcreteReceiver',
     methods: [
-      'iterator()'
+      'command()'
     ]
   },
 
   {
     x: 340, y: 220, width: 190,
-    classname: 'ConcreteIterator',
+    classname: 'ConcreteCommand',
     attributes: [
-      'aggregate'
+      'receiver'
     ],
     methods: [
-      'hasNext()',
-      'next()'
+      'execute()'
     ]
   },
 ];
@@ -55,32 +52,32 @@ svg.append("text").append("textPath").attr("xlink:href", "#100").attr("startOffs
 var connectors = [
   {
     points: [
-      {x: boxes.Aggregate.rightX(), y: boxes.Iterator.midY()},
-      {x: boxes.Iterator.x, y: boxes.Iterator.midY()}
+      {x: boxes.Receiver.rightX(), y: boxes.Command.midY()},
+      {x: boxes.Command.x, y: boxes.Command.midY()}
     ],
     markerEnd: 'arrowhead'
   },
 
   {
     points: [
-      {x: boxes.ConcreteAggregate.rightX(), y: boxes.ConcreteIterator.midY()},
-      {x: boxes.ConcreteIterator.x, y: boxes.ConcreteIterator.midY()}
+      {x: boxes.ConcreteReceiver.rightX(), y: boxes.ConcreteCommand.midY()},
+      {x: boxes.ConcreteCommand.x, y: boxes.ConcreteCommand.midY()}
     ],
     markerEnd: 'diamond'
   },
 
   {
     points: [
-      {x: boxes.ConcreteAggregate.midX(), y: boxes.ConcreteAggregate.y},
-      {x: boxes.ConcreteAggregate.midX(), y: boxes.Aggregate.bottomY()}
+      {x: boxes.ConcreteReceiver.midX(), y: boxes.ConcreteReceiver.y},
+      {x: boxes.ConcreteReceiver.midX(), y: boxes.Receiver.bottomY()}
     ],
     dashline: true,
     markerEnd: 'triangle'
   },
   {
     points: [
-      {x: boxes.Iterator.midX(), y: boxes.ConcreteIterator.y},
-      {x: boxes.Iterator.midX(), y: boxes.Iterator.bottomY()}
+      {x: boxes.Command.midX(), y: boxes.ConcreteCommand.y},
+      {x: boxes.Command.midX(), y: boxes.Command.bottomY()}
     ],
     dashline: true,
     markerEnd: 'triangle'
