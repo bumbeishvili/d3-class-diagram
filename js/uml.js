@@ -11,6 +11,7 @@ var classes = [
   {
     x: 40, y: 20, width: 190,
     classname: 'Aggregate',
+    interface: true,
     methods: [
       'iterator()'
     ]
@@ -19,6 +20,7 @@ var classes = [
   {
     x: 340, y: 20, width: 190,
     classname: 'Iterator',
+    interface: true,
     methods: [
       'hasNext()',
       'next()'

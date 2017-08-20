@@ -101,15 +101,15 @@ d3.classDiagram = (function() {
         });
 
     g.append('rect')
-        .attr({
-          'width': function(d) { return d.width; },
-          'fill': 'none',
-          'stroke': 'black',
-          'stroke-width': 1
-        });
+      .attr({
+        'width': function(d) { return d.width; },
+        'fill': 'none',
+        'stroke': 'black',
+        'stroke-width': 1
+      });
 
     var classNameG = g.append('g')
-      .attr('class', 'classname');
+        .attr('class', 'classname');
     var classNameRects = classNameG.append('rect')
       .attr({
         'width': function(d) { return d.width; },
@@ -123,7 +123,13 @@ d3.classDiagram = (function() {
             .verticalAlign('top')
             .paddingTop(4)
             .paddingBottom(4)
-            .text(function(d) { return d.classname; })
+            .text(function(d) {
+              if (d.interface) {
+                return "<<interface>>\n" + d.classname;
+              } else {
+                return d.classname;
+              };
+            })
            );
 
     adjustHeight(classNameRects[0], classNameTexts[0], 4, 4);
@@ -188,9 +194,21 @@ d3.classDiagram = (function() {
         'stroke-width': 1
       });
     var methodsTexts = methodsG.append('text')
-        .attr('font-size', 12)
+      .attr({
+        'font-size': 12,
+        'font-style': function(d) {
+          if (d.interface) {
+            return 'italic'
+          } else {
+            return 'normal'
+          }
+        }
+      }
+           )
       .call(d3.multilineText()
-            .text(function(d) { return d.methods; })
+            .text(function(d) {
+              return d.methods;
+            })
             .verticalAlign('top')
             .horizontalAlign('left')
             .paddingTop(4)
@@ -201,14 +219,14 @@ d3.classDiagram = (function() {
     svg.selectAll('g.class')
       .each(function(d, i) {
         var classG = d3.select(this),
-            classRect = classG.node().firstChild,
-            classNameG = classRect.nextSibling,
-            attributesG = classNameG.nextSibling,
-            methodsG = attributesG.nextSibling,
-            height =
-            classNameG.getBBox().height +
-            attributesG.getBBox().height +
-            methodsG.getBBox().height;
+        classRect = classG.node().firstChild,
+        classNameG = classRect.nextSibling,
+        attributesG = classNameG.nextSibling,
+        methodsG = attributesG.nextSibling,
+        height =
+          classNameG.getBBox().height +
+          attributesG.getBBox().height +
+          methodsG.getBBox().height;
         d3.select(classRect).attr('height', height);
       });
 
