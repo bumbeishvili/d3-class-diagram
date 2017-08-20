@@ -9,7 +9,7 @@ d3.classDiagram.addMarkers(svg.append('defs'));
 var classes = [
   {
     x: 40, y: 320, width: 190,
-    classname: '<<Interface>>\nAggregate',
+    classname: 'Aggregate',
     methods: [
       'iterator()'
     ]
@@ -17,7 +17,7 @@ var classes = [
 
   {
     x: 340, y: 320, width: 190,
-    classname: '<<Interface>>\nIterator',
+    classname: 'Iterator',
     methods: [
       'hasNext()',
       'next()'
@@ -86,6 +86,22 @@ var boxes = d3.classDiagram.createClasses(classes);
 svg.selectAll('text').attr('font-family', 'Noto Sans Japanese');
 
 var connectors = [
+  {
+    points: [
+      {x: boxes.Aggregate.rightX(), y: boxes.Iterator.midY()},
+      {x: boxes.Iterator.x, y: boxes.Iterator.midY()}
+    ],
+    markerEnd: 'arrowhead'
+  },
+
+  {
+    points: [
+      {x: boxes.ConcreteAggregate.midX(), y: boxes.ConcreteAggregate.bottomY()},
+      {x: boxes.ConcreteAggregate.midX(), y: boxes.Aggregate.bottomY()}
+    ],
+    markerEnd: 'arrowhead'
+  },
+
   {
     points: [
       {x: boxes.User.rightX(), y: boxes.Micropost.midY()},
