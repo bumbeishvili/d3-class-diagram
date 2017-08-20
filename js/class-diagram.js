@@ -250,6 +250,9 @@ d3.classDiagram = (function() {
           'stroke-width': 1,
           'fill': 'none'
         });
+        if (d.dashline) {
+          path.style("stroke-dasharray", ("3, 3"));
+        }
         if (d.markerEnd) {
           path.attr('marker-end', 'url(#' + d.markerEnd + ')');
         }
