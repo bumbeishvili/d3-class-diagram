@@ -96,11 +96,28 @@ var connectors = [
 
   {
     points: [
-      {x: boxes.ConcreteAggregate.midX(), y: boxes.ConcreteAggregate.bottomY()},
+      {x: boxes.ConcreteAggregate.rightX(), y: boxes.ConcreteIterator.midY()},
+      {x: boxes.ConcreteIterator.x, y: boxes.ConcreteIterator.midY()}
+    ],
+    markerEnd: 'arrowhead'
+  },
+
+  {
+    points: [
+      {x: boxes.ConcreteAggregate.midX(), y: boxes.ConcreteAggregate.y},
       {x: boxes.ConcreteAggregate.midX(), y: boxes.Aggregate.bottomY()}
     ],
     markerEnd: 'arrowhead'
   },
+  {
+    points: [
+      {x: boxes.Iterator.midX(), y: boxes.Iterator.bottomY()},
+      {x: boxes.Iterator.midX(), y: boxes.ConcreteIterator.y}
+    ],
+    markerEnd: 'arrowhead'
+  },
+
+
 
   {
     points: [
