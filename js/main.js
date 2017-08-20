@@ -86,7 +86,6 @@ d3.select("#generate")
     .on("click", writeDownloadLink);
 
 function writeDownloadLink(){
-  alert("hello")
   //get svg element.
   var svg = document.getElementById("diagram");
 
@@ -109,7 +108,6 @@ function writeDownloadLink(){
   var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
 
   //set url value to a element's href attribute.
-  document.getElementById("diagram").href = url;
-  console.log(url);
+  document.getElementById("download-url").href = url;
   //you can download svg file by right click menu.
 }
